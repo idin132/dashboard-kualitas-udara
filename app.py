@@ -54,6 +54,15 @@ st.sidebar.divider()
 city_list = ["Semua Kota"] + sorted(df_city['City'].unique().tolist())
 selected_city = st.sidebar.selectbox("Pilih Kota", city_list)
 
+st.sidebar.info("""
+- **0-50 (Good)**: Udara bersih.
+- **51-100 (Satisfactory)**: Udara cukup baik.
+- **101-200 (Moderate)**: Gejala muncul pada orang sensitif.
+- **201-300 (Poor)**: Gangguan pernapasan.
+- **301-400 (Very Poor)**: Risiko kesehatan serius.
+- **400+ (Severe)**: Dampak buruk bagi semua.
+""")
+
 # ==============================
 # FILTER LOGIC
 # ==============================
