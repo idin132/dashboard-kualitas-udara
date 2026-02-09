@@ -36,16 +36,16 @@ df_city, df_hour = load_data()
 # ==============================
 # SIDEBAR MENU
 # ==============================
-st.sidebar.title("🌫️ Dashboard AQI")
+st.sidebar.title("Dashboard AQI")
 
 menu = st.sidebar.radio(
     "Navigasi",
     [
-        "🏠 Ringkasan",
-        "📊 Analisis Kota",
-        "⏰ Tren Waktu",
-        "🌍 Distribusi",
-        "🌙 Siang vs Malam"
+        " Ringkasan",
+        " Analisis Kota",
+        " Tren Waktu",
+        " Distribusi",
+        " Siang vs Malam"
     ]
 )
 
@@ -67,9 +67,9 @@ else:
 # ==============================
 # HALAMAN 1: RINGKASAN
 # ==============================
-if menu == "🏠 Ringkasan":
+if menu == " Ringkasan":
 
-    st.title("🌫️ Dashboard Monitoring Kualitas Udara")
+    st.title(" Dashboard Monitoring Kualitas Udara")
 
     avg_nasional = df_city['Avg_AQI'].mean()
     worst_city = df_city.sort_values(by='Avg_AQI', ascending=False).iloc[0]
@@ -92,9 +92,9 @@ if menu == "🏠 Ringkasan":
 # ==============================
 # HALAMAN 2: ANALISIS KOTA
 # ==============================
-elif menu == "📊 Analisis Kota":
+elif menu == " Analisis Kota":
 
-    st.title("📊 Perbandingan AQI Antar Kota")
+    st.title(" Perbandingan AQI Antar Kota")
 
     status, color = get_aqi_category(focus_city_data['Avg_AQI'])
 
@@ -120,9 +120,9 @@ elif menu == "📊 Analisis Kota":
 # ==============================
 # HALAMAN 3: TREN WAKTU
 # ==============================
-elif menu == "⏰ Tren Waktu":
+elif menu == " Tren Waktu":
 
-    st.title("⏰ Tren AQI Berdasarkan Jam")
+    st.title(" Tren AQI Berdasarkan Jam")
 
     df_hour = df_hour.sort_values(by='Hour')
     worst_hour = df_hour.loc[df_hour['Avg_AQI'].idxmax()]
@@ -146,9 +146,9 @@ elif menu == "⏰ Tren Waktu":
 # ==============================
 # HALAMAN 4: DISTRIBUSI
 # ==============================
-elif menu == "🌍 Distribusi":
+elif menu == " Distribusi":
 
-    st.title("🌍 Distribusi Kategori AQI")
+    st.title(" Distribusi Kategori AQI")
 
     df_city['Category'] = df_city['Avg_AQI'].apply(lambda x: get_aqi_category(x)[0])
 
@@ -174,9 +174,9 @@ elif menu == "🌍 Distribusi":
 # ==============================
 # HALAMAN 5: SIANG VS MALAM
 # ==============================
-elif menu == "🌙 Siang vs Malam":
+elif menu == " Siang vs Malam":
 
-    st.title("🌙 Perbandingan Polusi Siang vs Malam")
+    st.title(" Perbandingan Polusi Siang vs Malam")
 
     def time_group(hour):
         return 'Siang' if 6 <= hour <= 18 else 'Malam'
